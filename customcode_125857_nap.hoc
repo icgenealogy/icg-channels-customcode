@@ -1,0 +1,46 @@
+
+/***********************************
+
+tau_m function table for kaf ******/
+/*
+    objref kaf_taum, kaf_vtau, file
+    
+    kaf_vtau = new Vector(11,0)
+    kaf_taum = new Vector(11,0)
+
+    file = new File()
+    file.ropen("custom_code/tau_tables/125857_kaf_vtau.dat")
+    kaf_vtau.scanf(file)
+    file.close()
+
+    file.ropen("custom_code/tau_tables/125857_kaf_taum.dat")
+    kaf_taum.scanf(file)
+    file.close()
+
+
+
+    table_taum_kaf(kaf_taum, kaf_vtau)
+*/
+    
+/***********************************
+tau_h function table for nap ******/
+    
+    objref nap_tauh, nap_vtau, file
+    
+    nap_vtau = new Vector(15,0)
+    nap_tauh = new Vector(15,0)
+
+    file = new File()
+    file.ropen("custom_code/tau_tables/125857_nap_vtau.dat")
+    nap_vtau.scanf(file)
+    file.close()
+
+    file.ropen("custom_code/tau_tables/125857_nap_tauh.dat")
+    nap_tauh.scanf(file)
+    file.close()
+
+
+    table_tauh_nap(nap_tauh, nap_vtau)
+
+/**********************************/
+
