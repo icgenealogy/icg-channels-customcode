@@ -1,0 +1,26 @@
+// mit_memb.hoc
+// Membrane properties for mitral cell model
+// Andrew Davison
+// 24-11-98, 25-01-98
+
+//********************************************************************************
+// Reading function tables for tabchannels
+//********************************************************************************
+
+//kslowtab
+objref tabkinfvecs, tabninfvecs, tabktauvecs, tabntauvecs, vvec
+
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/153574_kslow_k.inf")
+tabkinfvecs = hoc_obj_[0]
+vvec = hoc_obj_[1]
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/153574_kslow_n.inf")
+tabninfvecs = hoc_obj_[0]
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/153574_kslow_k.tau")
+tabktauvecs = hoc_obj_[0]
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/153574_kslow_n.tau")
+tabntauvecs = hoc_obj_[0]
+
+table_tabkinf_K_mit_usb(&tabkinfvecs.x[0], vvec.size, &vvec.x[0])
+table_tabninf_K_mit_usb(&tabninfvecs.x[0], vvec.size, &vvec.x[0])
+table_tabktau_K_mit_usb(&tabktauvecs.x[0], vvec.size, &vvec.x[0])
+table_tabntau_K_mit_usb(&tabntauvecs.x[0], vvec.size, &vvec.x[0])

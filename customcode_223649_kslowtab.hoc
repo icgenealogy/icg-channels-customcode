@@ -1,0 +1,34 @@
+// tabchannels.hoc
+// Tabulated channels for Kfast and Kslow channels
+//
+// Implemented in Rubin and Cleland (2006) J Neurophysiology
+// Written by Andrew Davison, The Babraham Institute, 17 August 1998
+// 	[Davison AP, Feng J, Brown D (2000) Brain Res Bulletin 51(5):393-399]
+// Derived from Bhalla and Bower (1993) J Neurophysiology
+
+
+//*************************************************************************
+// Reading function tables for tabchannels
+//*************************************************************************
+
+//kslowtab
+
+objref tabkinfvecs, tabninfvecs, tabktauvecs, tabntauvecs, vvec
+
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/223649_kslow_k.inf")
+tabkinfvecs = hoc_obj_[0]
+vvec = hoc_obj_[1]
+
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/223649_kslow_n.inf")
+tabninfvecs = hoc_obj_[0]
+
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/223649_kslow_k.tau")
+tabktauvecs = hoc_obj_[0]
+
+clipboard_retrieve("/tmp/icg-nrn-sim/icg-channels-customcode/tau_tables/223649_kslow_n.tau")
+tabntauvecs = hoc_obj_[0]
+
+table_tabkinf_kslowtab(&tabkinfvecs.x[0], vvec.size, &vvec.x[0])
+table_tabninf_kslowtab(&tabninfvecs.x[0], vvec.size, &vvec.x[0])
+table_tabktau_kslowtab(&tabktauvecs.x[0], vvec.size, &vvec.x[0])
+table_tabntau_kslowtab(&tabntauvecs.x[0], vvec.size, &vvec.x[0])
